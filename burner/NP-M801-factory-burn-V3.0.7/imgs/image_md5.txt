@@ -1,0 +1,3 @@
+35acd5c56e03c0157b1f4385dae2f4c4  x-boot-nand.bin
+e260251e0dd4201afd48d009cee8c4ee  boot.img
+00d8abd375b8ab37d7506fd0043e85a6  system.img

@@ -1,0 +1,9 @@
+<modems version="1">
+	
+    <modem vendor="RDA"
+           type="GSM"
+           networkCapability="0"
+           supportSPSMSFULL="false"
+           />
+        
+</modems>
