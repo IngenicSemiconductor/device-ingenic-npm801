@@ -1,0 +1,65 @@
+From 6508828991f41ce3927853fa55dfa03f3e0f348c Mon Sep 17 00:00:00 2001
+From: James <jialei.james@gmail.com>
+Date: Mon, 20 May 2013 17:58:01 +0800
+Subject: [PATCH] Adding configuration files for bluetooth@npm801.
+
+Change-Id: I835f848fd51d6d956d7b318bd26c7874106b9765
+---
+ libbt/conf/ingenic/npm801/Android.mk     |   14 ++++++++++++++
+ libbt/conf/ingenic/npm801/bt_vendor.conf |    6 ++++++
+ libbt/include/vnd_npm801.txt             |    8 ++++++++
+ 3 files changed, 28 insertions(+)
+ create mode 100644 libbt/conf/ingenic/npm801/Android.mk
+ create mode 100644 libbt/conf/ingenic/npm801/bt_vendor.conf
+ create mode 100644 libbt/include/vnd_npm801.txt
+
+diff --git a/libbt/conf/ingenic/npm801/Android.mk b/libbt/conf/ingenic/npm801/Android.mk
+new file mode 100644
+index 0000000..974e213
+--- /dev/null
++++ b/libbt/conf/ingenic/npm801/Android.mk
+@@ -0,0 +1,14 @@
++LOCAL_PATH := $(call my-dir)
++
++include $(CLEAR_VARS)
++
++LOCAL_MODULE := bt_vendor.conf
++LOCAL_MODULE_CLASS := ETC
++LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/bluetooth
++
++LOCAL_MODULE_TAGS := eng
++
++LOCAL_SRC_FILES := $(LOCAL_MODULE)
++
++include $(BUILD_PREBUILT)
++
+diff --git a/libbt/conf/ingenic/npm801/bt_vendor.conf b/libbt/conf/ingenic/npm801/bt_vendor.conf
+new file mode 100644
+index 0000000..bfe69ca
+--- /dev/null
++++ b/libbt/conf/ingenic/npm801/bt_vendor.conf
+@@ -0,0 +1,6 @@
++# UART device port where Bluetooth controller is attached
++UartPort = /dev/ttyS2
++
++# Firmware patch file location
++FwPatchFilePath = /etc/firmware/bcm4330/
++FwPatchFileName = BCM4330.hcd
+\ No newline at end of file
+diff --git a/libbt/include/vnd_npm801.txt b/libbt/include/vnd_npm801.txt
+new file mode 100644
+index 0000000..7b5652d
+--- /dev/null
++++ b/libbt/include/vnd_npm801.txt
+@@ -0,0 +1,8 @@
++BLUETOOTH_UART_DEVICE_PORT = "/dev/ttyS2"
++FW_PATCHFILE_LOCATION = "/etc/firmware/bcm4330/"
++LPM_IDLE_TIMEOUT_MULTIPLE = 5
++BTVND_DBG = FALSE
++BTHW_DBG = TRUE
++VNDUSERIAL_DBG = FALSE
++UPIO_DBG = FALSE
++UART_TARGET_BAUD_RATE = 3000000
+-- 
+1.7.9.5
+

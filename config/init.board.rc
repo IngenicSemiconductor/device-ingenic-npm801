@@ -1,6 +1,18 @@
 on init
     write /dev/nand_char "CMD_INSTALL_PARTITION:ALL"
-    
+
+    # permissions for bluetooth.
+    setprop ro.bt.bdaddr_path "/data/misc/bluetooth/bt_addr"
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown bluetooth bluetooth /dev/ttyS2
+    chmod 0600 /dev/ttyS2
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+
+    # for modem uart
+    write /sys/class/tty/ttyS1/power/wakeup enabled
+
     #change the perms of ttyS of radio(rild)
     chown radio radio  /dev/ttyUSB0
     chmod 0666 /dev/ttyUSB0
@@ -8,8 +20,6 @@ on init
     chmod 0666 /dev/ttyUSB1
     chown radio radio  /dev/ttyUSB2
     chmod 0666 /dev/ttyUSB2
-#change ttyS2 mode for bluetooth of bcm4330
-	chmod 0666 /dev/ttyS2
 
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
@@ -143,12 +153,6 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 \
 	disabled
 	oneshot
 
-service hciattach /system/bin/sh /system/etc/bluetooth/bt.sh
-     user bluetooth
-	 group bluetooth net_bt_admin
-	 disabled
-	 oneshot
-
 service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
 	 class main
 	 disabled
@@ -179,6 +183,19 @@ service pppd_evdo /system/bin/pppd call evdodialer
     group system radio
     disabled
     oneshot
+
+#RDA8851
+service mux /system/bin/gsm0710muxd -s /dev/ttyS1 -n 3 -m basic
+    class main
+    user root
+    group radio cache inet misc
+    oneshot
+
+service ppp0 /system/bin/pppd /dev/ttyM3 unit 0 115200 debug nocrtscts nodetach noauth usepeerdns defaultroute connect-delay 5000
+    user root
+    group radio cache inet misc
+    oneshot
+    disabled
 
 #pppoe
 service pppoe-start /system/bin/pppoe-start
@@ -237,13 +254,4 @@ service pvrsrvctl /system/bin/pvrsrvctl --start
 #    socket dbus stream 660 bluetooth bluetooth
 #    user bluetooth
 #    group bluetooth net_bt_admin
-
-#service bluetoothd /system/bin/bluetoothd -n
-#    class main
-#    socket bluetooth stream 660 bluetooth bluetooth
-#    socket dbus_bluetooth stream 660 bluetooth bluetooth
-#    # init.rc does not yet support applying capabilities, so run as root and
-#    # let bluetoothd drop uid to bluetooth with the right linux capabilities
-#    group bluetooth net_bt_admin misc
-#    disabled
 

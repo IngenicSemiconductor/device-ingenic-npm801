@@ -1,4 +1,5 @@
 Put all files under me to $ANDROID_ROOT/device/ingenic/npm801/
+Copy 0001-Adding-configuration-files-for-bluetooth-npm801.patch to device/commont/libbt and apply for BT@npm801.
 
 ****PART ONE: Building the System****
 1. Initialize the environment with the envsetup.sh script.
