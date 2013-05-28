@@ -2,7 +2,7 @@ on init
     write /dev/nand_char "CMD_INSTALL_PARTITION:ALL"
 
     # permissions for bluetooth.
-    setprop ro.bt.bdaddr_path "/data/misc/bluetooth/bt_addr"
+    setprop ro.bt.bdaddr_path "/system/etc/firmware/bcm4330/bt_addr"
     chown bluetooth bluetooth ro.bt.bdaddr_path
     chown bluetooth bluetooth /dev/ttyS2
     chmod 0600 /dev/ttyS2
