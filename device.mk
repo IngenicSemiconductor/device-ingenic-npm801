@@ -43,6 +43,8 @@ PRODUCT_PACKAGES += \
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 $(call inherit-product, hardware/ingenic/xb4780/libGPU/gpu.mk)
+$(call inherit-product, hardware/ingenic/xb4780/libcamera2/binary/camera.mk)
+$(call inherit-product, hardware/ingenic/xb4780/libxbomx/xbomx.mk)
 
 # inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, vendor/ingenic/$(TARGET_BOARD_NAME)/$(TARGET_BOARD_NAME)-vendor.mk)
