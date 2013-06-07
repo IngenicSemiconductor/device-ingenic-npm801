@@ -65,7 +65,7 @@ BOARD_MODEM1_MODULE := rda8851cl
 #camera configure
 BOARD_HAS_CAMERA := true
 CAMERA_SUPPORT_VIDEOSNAPSHORT := false
-COVERT_WITH_SOFT := false
+COVERT_WITH_SOFT := true
 CAMERA_VERSION := 1
 
 # Wi-Fi hardware selection
