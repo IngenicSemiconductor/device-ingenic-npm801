@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
     sensors.xb4780       \
     lights.xb4780        \
     libdmmu              \
+	audio.a2dp.default   \
     libjzipu
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
