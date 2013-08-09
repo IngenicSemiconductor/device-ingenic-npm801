@@ -23,8 +23,8 @@
       2. To flash XBoot, system, and boot images:
          ---------------------------------------
          cp burning_list_forall.txt                     /media/XXX/burning_list.txt;
-         cp $TOP/target/product/npm801/boot.img         /media/XXX/
-         cp $TOP/target/product/npm801/system.img       /media/XXX/
+         cp $TOP/out/target/product/npm801/boot.img     /media/XXX/
+         cp $TOP/out/target/product/npm801/system.img   /media/XXX/
 
       NOTE: Be careful and make sure in the above cp that the file name 
       ====  is changed to burning_list.txt. 
@@ -43,5 +43,6 @@
    j. Press vol- and do a reset.
 
 NOTE: Keep vol- pressed until you see the boot logo(A green Android robot).
+
 
 
