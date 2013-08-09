@@ -1,3 +1,6 @@
+                                        Android-4.3 Release Note
+                                        ------------------------
+
 Put all files here into $ANDROID_ROOT/device/ingenic/npm801/
 Copy 0001-Adding-configuration-files-for-bluetooth-npm801.patch to device/commont/libbt and apply for BT@npm801.
 

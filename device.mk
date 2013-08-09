@@ -29,7 +29,8 @@ PRODUCT_PACKAGES := \
     mke2fs          \
     mke2fs_host     \
     e2fsck          \
-    e2fsck_host
+    e2fsck_host     \
+    setup_fs
 
 PRODUCT_PACKAGES += \
     hwcomposer.xb4780    \
@@ -39,7 +40,7 @@ PRODUCT_PACKAGES += \
     sensors.xb4780       \
     lights.xb4780        \
     libdmmu              \
-	audio.a2dp.default   \
+    audio.a2dp.default   \
     libjzipu
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
@@ -68,7 +69,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/ueventd.board.rc:root/ueventd.$(TARGET_BOARD_NAME).rc                \
     $(LOCAL_PATH)/config/bt_addr:system/etc/firmware/bcm4330/bt_addr
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/disk_preparing.sh:system/etc/disk_preparing.sh                       
 
 # Media Codecs List
