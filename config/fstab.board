@@ -6,3 +6,4 @@
 #/dev/block/ndsystem           /system             ext4      ro  wait
 /dev/block/nddata     /data     ext4     nodiratime,noauto_da_alloc,nodelalloc,noatime,nosuid,nodev,nomblk_io_submit,errors=panic     wait,check
 /dev/block/ndcache    /cache    ext4     nodiratime,noauto_da_alloc,nodelalloc,noatime,nosuid,nodev,nomblk_io_submit,errors=panic     wait,check
+/devices/platform/jzmmc.0/mmc_host/mmc0 /storage/sdcard1     vfat      defaults                                             voldmanaged=sdcard1:auto
