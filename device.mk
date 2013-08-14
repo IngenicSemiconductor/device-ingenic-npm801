@@ -65,7 +65,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/init.board.rc:root/init.$(TARGET_BOARD_NAME).rc                      \
     $(LOCAL_PATH)/config/init.board.usb.rc:root/init.$(TARGET_BOARD_NAME).usb.rc              \
     $(LOCAL_PATH)/config/fstab.board:root/fstab.$(TARGET_BOARD_NAME)                          \
-    $(LOCAL_PATH)/config/vold.fstab:system/etc/vold.fstab                                     \
     $(LOCAL_PATH)/config/ueventd.board.rc:root/ueventd.$(TARGET_BOARD_NAME).rc                \
     $(LOCAL_PATH)/config/bt_addr:system/etc/firmware/bcm4330/bt_addr
 
