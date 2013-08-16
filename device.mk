@@ -43,10 +43,21 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default   \
     libjzipu
 
+#
+# Build libxbomx packages/modules from source:
+#
+PRODUCT_PACKAGES +=                 \
+    libOMX_Basecomponent            \
+    libstagefright_hard_alume       \
+    libstagefright_alume_codec      \
+    libstagefright_hard_vlume       \
+    libstagefright_vlume_codec      \
+    libstagefright_hard_x264hwenc
+
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
-$(call inherit-product, hardware/ingenic/xb4780/libGPU/gpu.mk)
-$(call inherit-product, hardware/ingenic/xb4780/libcamera2/binary/camera.mk)
-$(call inherit-product, hardware/ingenic/xb4780/libxbomx/xbomx.mk)
+$(call inherit-product, hardware/ingenic/xb4780/core/libGPU/gpu.mk)
+$(call inherit-product, hardware/ingenic/xb4780/core/libcamera2/binary/camera.mk)
+# $(call inherit-product, hardware/ingenic/xb4780/libxbomx/xbomx.mk)
 
 # inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, vendor/ingenic/$(TARGET_BOARD_NAME)/$(TARGET_BOARD_NAME)-vendor.mk)
