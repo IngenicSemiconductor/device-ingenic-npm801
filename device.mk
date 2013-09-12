@@ -54,6 +54,14 @@ PRODUCT_PACKAGES +=                 \
     libstagefright_vlume_codec      \
     libstagefright_hard_x264hwenc
 
+PRODUCT_PACKAGES +=                 \
+    libstagefrighthw \
+    libstagefright_hard_alume \
+    libstagefright_hard_vlume \
+    libstagefright_hard_x264hwenc \
+    libOMX_Core
+
+
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 $(call inherit-product, hardware/ingenic/xb4780/core/libGPU/gpu.mk)
 $(call inherit-product, hardware/ingenic/xb4780/core/libcamera2/binary/camera.mk)
@@ -86,6 +94,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml                    \
     $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml
+
+# Media Codecs Firmware
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/codecs_firmware/mpeg4_p1.bin:system/etc/mpeg4_p1.bin
 
 # modem configration
  PRODUCT_COPY_FILES += \
