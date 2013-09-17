@@ -1,5 +1,6 @@
 #for SGX
 /dev/pvrsrvkm             0666   system     system
+/dev/pvr_sync             0666   system     system
 
 # JZ graphics
 /dev/x2d                  0666   root       graphics
